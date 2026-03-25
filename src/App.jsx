@@ -1,17 +1,7 @@
-import { useState } from "react";
+import Home from "./pages/Home";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <section>
-        <h1 className="text-3xl text-center bg-sky-700 text-white p-2">
-          Netflix
-        </h1>
-      </section>
-    </>
-  );
+  return <Home />;
 }
 
 export default App;

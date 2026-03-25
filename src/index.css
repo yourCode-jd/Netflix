@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+/* custom scroll */
+
+.moviesRow::-webkit-scrollbar {
+    width: 5px;
+}
+
+.moviesRow::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.moviesRow::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.moviesRow::-webkit-scrollbar-thumb:hover {
+    background-color: red;
+}
