@@ -17,15 +17,15 @@ function Banner() {
 
   return (
     <div
-      className="h-[80vh] text-white flex items-end"
+      className="h-[85vh] text-white flex items-end"
       style={{
         backgroundImage: `url(${IMAGE_BASE_URL}${movie.backdrop_path})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="w-full h-full bg-linear-to-t from-black via-black/30 to-transparent p-6 flex items-end">
-        <div className="max-w-lg mb-8">
+      <div className="w-full h-full bg-linear-to-t from-black via-black/30 to-transparent p-6 flex items-end relative">
+        <div className="max-w-xl mb-4">
           <h1 className="text-4xl font-bold mb-3">
             {movie.title || movie.name}
           </h1>
@@ -34,6 +34,7 @@ function Banner() {
             {movie.overview}
           </p>
         </div>
+        <div className="borderElement"></div>
       </div>
     </div>
   );

@@ -1,5 +1,76 @@
 @import "tailwindcss";
 
+
+body {
+    background-color: #141414;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+span {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.borderElement {
+    position: absolute;
+    height: 4px;
+    left: 50%;
+    bottom: -3px;
+    z-index: 0;
+    margin-top: 0;
+    border-radius: 100%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, rgba(33, 13, 22, 1) 16%, rgba(184, 40, 105, 1), rgba(229, 9, 20, 1), rgba(184, 40, 105, 1), rgba(33, 13, 22, 1) 84%);
+    width: 100%;
+}
+
+
 /* custom scroll */
 
 .moviesRow::-webkit-scrollbar {
@@ -19,4 +90,8 @@
 
 .moviesRow::-webkit-scrollbar-thumb:hover {
     background-color: red;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
 }

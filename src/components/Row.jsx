@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import MovieCard from "./MovieCard";
-import { fetchTrending } from "../services/api";
 import { LucideChevronsLeft, LucideChevronsRight } from "lucide-react";
 
-function Row({ title }) {
+function Row({ title, fetchData, showIndex }) {
   const [movies, setMovies] = useState([]);
   const rowRef = useRef();
 
   useEffect(() => {
-    fetchTrending().then((data) => setMovies(data));
-  }, []);
+    fetchData().then((data) => setMovies(data));
+  }, [fetchData]);
 
   const scrollLeft = () => {
     rowRef.current.scrollBy({ left: -300, behavior: "smooth" });
@@ -20,34 +19,41 @@ function Row({ title }) {
   };
 
   return (
-    <div className="px-6 mt-6 relative group">
-      <h2 className="text-2xl font-semibold mb-3">{title}</h2>
-
-      {/* LEFT ARROW */}
-      <button
-        onClick={scrollLeft}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-red-600/80 p-2 opacity-0 group-hover:opacity-100 transition rounded-full"
-      >
-        <LucideChevronsLeft className="text-white" />
-      </button>
+    <div className="px-6 relative group/row">
+      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
 
       {/* ROW */}
       <div
         ref={rowRef}
-        className="moviesRow flex gap-4 overflow-x-scroll scrollbar-hide"
+        className="flex gap-4 overflow-x-scroll scrollbar-hide py-2"
       >
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </div>
+        {/* LEFT */}
+        <button
+          onClick={scrollLeft}
+          className="absolute left-2 top-1/2 translate-y-0 z-10 bg-red-600/80 rounded-full p-2 opacity-0 group-hover/row:opacity-100 transition hover:scale-110"
+        >
+          <LucideChevronsLeft className="text-white" />
+        </button>
 
-      {/* RIGHT ARROW */}
-      <button
-        onClick={scrollRight}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-red-600/80 p-2 opacity-0 group-hover:opacity-100 transition rounded-full"
-      >
-        <LucideChevronsRight className="text-white" />
-      </button>
+        {movies.map((movie, index) =>
+          movie.poster_path ? (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              index={index}
+              showIndex={showIndex}
+            />
+          ) : null,
+        )}
+
+        {/* RIGHT */}
+        <button
+          onClick={scrollRight}
+          className="absolute right-2 top-1/2 translate-y-0 z-10 bg-red-600/80 rounded-full p-2 opacity-0 group-hover/row:opacity-100 transition hover:scale-110"
+        >
+          <LucideChevronsRight className="text-white" />
+        </button>
+      </div>
     </div>
   );
 }
