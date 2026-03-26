@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import MovieCard from "./MovieCard";
 import { LucideChevronsLeft, LucideChevronsRight } from "lucide-react";
 
-function Row({ title, fetchData, showIndex }) {
+function Row({ title, fetchData, showIndex, onMovieClick }) {
   const [movies, setMovies] = useState([]);
   const rowRef = useRef();
 
@@ -20,7 +20,7 @@ function Row({ title, fetchData, showIndex }) {
 
   return (
     <div className="px-6 relative group/row">
-      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+      <h2 className="text-2xl font-semibold md:mb-4 mb-2">{title}</h2>
 
       {/* ROW */}
       <div
@@ -42,6 +42,7 @@ function Row({ title, fetchData, showIndex }) {
               movie={movie}
               index={index}
               showIndex={showIndex}
+              onClick={() => onMovieClick(movie)}
             />
           ) : null,
         )}

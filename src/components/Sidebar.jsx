@@ -1,4 +1,4 @@
-import React from "react";
+import { Bookmark, Film, Tv, User } from "lucide-react";
 
 function Sidebar({ isOpen, setIsOpen }) {
   return (
@@ -13,13 +13,13 @@ function Sidebar({ isOpen, setIsOpen }) {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-black z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-72 bg-black/50 backdrop-blur-sm z-50 transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-2 right-4"
+          className="absolute top-7 right-5"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,13 +37,21 @@ function Sidebar({ isOpen, setIsOpen }) {
           </svg>
         </button>
         <div className="p-6 flex flex-col gap-6">
-          <h2 className="text-red-600 text-2xl font-bold">NETFLIX</h2>
+          <h2 className="text-red-600! text-2xl! font-bold">NETFLIX</h2>
 
           <nav className="flex flex-col gap-4 text-gray-300">
-            <span className="hover:text-white cursor-pointer">Home</span>
-            <span className="hover:text-white cursor-pointer">Movies</span>
-            <span className="hover:text-white cursor-pointer">TV Shows</span>
-            <span className="hover:text-white cursor-pointer">My List</span>
+            <a className="flex items-center gap-2 hover:text-white cursor-pointer">
+              <User className="text-gray-500" width={16} /> Home
+            </a>
+            <a className="flex items-center gap-2 hover:text-white cursor-pointer">
+              <Film className="text-gray-500" width={16} /> Movies
+            </a>
+            <a className="flex items-center gap-2 hover:text-white cursor-pointer">
+              <Tv className="text-gray-500" width={16} /> TV Shows
+            </a>
+            <a className="flex items-center gap-2 hover:text-white cursor-pointer">
+              <Bookmark className="text-gray-500" width={16} /> My List
+            </a>
           </nav>
         </div>
       </div>

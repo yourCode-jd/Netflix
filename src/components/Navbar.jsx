@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
-import { User } from "lucide-react";
+import { Menu, User } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "#" },
@@ -51,13 +51,7 @@ function Navbar({ onSearch }) {
         <div className="flex items-center gap-4">
           {/* MOBILE MENU BUTTON */}
           <button onClick={() => setIsOpen(true)} className="md:hidden">
-            <svg width="24" height="24" fill="white">
-              <path
-                d="M3 6h18M3 12h18M3 18h18"
-                stroke="white"
-                strokeWidth="2"
-              />
-            </svg>
+            <Menu className="w-7.5 h-7.5 text-white" />
           </button>
 
           <h1 className="text-red-600! text-3xl! font-bold!">NETFLIX</h1>
@@ -88,8 +82,8 @@ function Navbar({ onSearch }) {
           />
 
           {/* PROFILE */}
-          <div className="w-8 h-8 bg-white rounded-full">
-            <User className="w-full h-full p-1.5 text-black" />
+          <div className="w-8 h-8 md:bg-white bg-white/60  rounded-full">
+            <User className="w-full h-full p-1.5 text-white md:text-black" />
           </div>
         </div>
       </div>

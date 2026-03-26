@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import Row from "../components/Row";
 import MovieCard from "../components/MovieCard";
+import MovieModal from "../components/MovieModal";
 
 import {
   fetchTrending,
@@ -13,6 +14,7 @@ import {
 
 function Home() {
   const [searchResults, setSearchResults] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleSearch = async (query) => {
     if (!query) {
@@ -46,11 +48,30 @@ function Home() {
       )}
 
       {/* ORIGINAL ROWS (UNCHANGED) */}
-      <div className="mt-10 relative space-y-6">
-        <Row title="Trending Now" fetchData={fetchTrending} showIndex />
-        <Row title="Top Rated" fetchData={fetchTopRated} />
-        <Row title="Action Movies" fetchData={fetchActionMovies} />
+      <div className="md:mt-10 mt-6 relative md:space-y-6 space-y-4">
+        <Row
+          title="Trending Now"
+          fetchData={fetchTrending}
+          showIndex
+          onMovieClick={setSelectedMovie}
+        />
+        <Row
+          title="Top Rated"
+          fetchData={fetchTopRated}
+          onMovieClick={setSelectedMovie}
+        />
+        <Row
+          title="Action Movies"
+          fetchData={fetchActionMovies}
+          onMovieClick={setSelectedMovie}
+        />
       </div>
+      {selectedMovie && (
+        <MovieModal
+          movie={selectedMovie}
+          onClose={() => setSelectedMovie(null)}
+        />
+      )}
     </div>
   );
 }

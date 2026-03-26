@@ -1,11 +1,14 @@
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
-function MovieCard({ movie, index, showIndex }) {
+function MovieCard({ movie, index, showIndex, onClick }) {
   return (
-    <div className="relative min-w-52 h-72 shrink-0 group cursor-pointer">
+    <div
+      onClick={onClick}
+      className="relative md:min-w-52 min-w-44 md:h-72 h-60 shrink-0 group cursor-pointer"
+    >
       {/* BIG NUMBER */}
       {showIndex && (
-        <span className="absolute right-0 bottom-0 text-[120px]! font-extrabold! text-black! [-webkit-text-stroke:2px_white] opacity-80 leading-none z-0">
+        <span className="absolute right-0 bottom-0 md:text-[120px]! text-[80px]! font-extrabold! text-black! [-webkit-text-stroke:2px_white] opacity-80 leading-none z-0">
           {index + 1}
         </span>
       )}

@@ -17,7 +17,7 @@ function Banner() {
 
   return (
     <div
-      className="h-[85vh] text-white flex items-end"
+      className="md:h-[85vh] h-[65vh] text-white flex items-end"
       style={{
         backgroundImage: `url(${IMAGE_BASE_URL}${movie.backdrop_path})`,
         backgroundSize: "cover",
