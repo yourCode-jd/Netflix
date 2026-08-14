@@ -20,7 +20,7 @@ A Netflix-style movie browsing UI built with React and the TMDB API — trending
 
 ## Live Demo
 
-Coming soon — deployment is pending a fresh TMDB API key.
+[https://netflix-nu-gold.vercel.app/](https://netflix-nu-gold.vercel.app/)
 
 ## Running Locally
 
